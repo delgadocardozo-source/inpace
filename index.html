@@ -3,282 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INPACE | Industria de Soluciones Ferrosas y Armaduras de Ingeniería</title>
+    <title>INPACE | Solidez industrial para un Paraguay que construye</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600;800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         :root { 
             --inpace-blue: #003366; 
             --inpace-gold: #C5A059; 
-            --inpace-light: #F8F9FA;
-            --inpace-dark: #001f3d;
+            --inpace-light: #F4F7F9;
         }
-        body { font-family: 'Inter', sans-serif; color: #333; scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: #1a1a1a; scroll-behavior: smooth; }
         .font-heading { font-family: 'Barlow', sans-serif; }
         
-        .hero-gradient {
-            background: linear-gradient(rgba(0,51,102,0.85), rgba(0,31,61,0.9)), 
-            url('https://images.unsplash.com/photo-1513245543132-31f507417b26?auto=format&fit=crop&q=80');
+        .hero-industrial {
+            background: linear-gradient(rgba(0,51,102,0.8), rgba(0,31,61,0.9)), 
+            url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80');
             background-size: cover; background-position: center;
         }
-        .border-gold { border-color: var(--inpace-gold); }
-        .bg-inpace-blue { background-color: var(--inpace-blue); }
-        .text-inpace-gold { color: var(--inpace-gold); }
+        .gold-line { height: 4px; width: 60px; background-color: var(--inpace-gold); }
+        .tech-card { border-left: 4px solid var(--inpace-gold); transition: all 0.3s ease; }
+        .tech-card:hover { transform: translateX(10px); background-color: #fff; }
         
-        .tech-table th { background-color: var(--inpace-blue); color: white; padding: 12px; font-size: 0.75rem; text-transform: uppercase; }
-        .tech-table td { padding: 10px; border-bottom: 1px solid #e5e7eb; font-size: 0.85rem; }
+        .table-inpace th { background-color: var(--inpace-blue); color: white; padding: 12px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
+        .table-inpace td { padding: 12px; border-bottom: 1px solid #e5e7eb; font-size: 0.85rem; }
     </style>
 </head>
 <body class="bg-white">
 
-    <header class="fixed w-full z-50 bg-white border-b-4 border-gold shadow-lg">
+    <header class="fixed w-full z-50 bg-white/95 backdrop-blur shadow-sm border-b-4 border-gold">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <div class="relative w-12 h-12 bg-inpace-blue flex items-center justify-center border-r-4 border-gold">
-                    <span class="text-white font-black text-2xl italic">I</span>
-                    <div class="absolute -bottom-1 -right-1 w-4 h-1 bg-gold"></div>
+                <div class="w-10 h-10 bg-[#003366] flex items-center justify-center border-b-4 border-r-4 border-[#C5A059]">
+                    <span class="text-white font-black text-xl italic">I</span>
                 </div>
                 <div>
-                    <span class="text-2xl font-black font-heading tracking-tighter text-inpace-blue">INPACE</span>
-                    <span class="block text-[9px] uppercase tracking-[0.2em] font-bold text-gray-500">Ingeniería en Acero</span>
+                    <span class="text-xl font-black font-heading tracking-tighter text-[#003366]">INPACE</span>
+                    <span class="block text-[8px] uppercase tracking-[0.3em] font-bold text-gray-400">Industria Paraguaya</span>
                 </div>
             </div>
-            <nav class="hidden lg:flex space-x-8 text-xs font-bold uppercase tracking-widest text-inpace-blue">
-                <a href="#empresa" class="hover:text-gold transition">Empresa</a>
-                <a href="#productos" class="hover:text-gold transition">Productos</a>
-                <a href="#ingenieria" class="hover:text-gold transition">Corte y Doblado</a>
-                <a href="#contacto" class="hover:text-gold transition">Contacto</a>
+            <nav class="hidden lg:flex space-x-8 text-[10px] font-bold uppercase tracking-widest text-[#003366]">
+                <a href="#inicio" class="hover:text-[#C5A059]">Inicio</a>
+                <a href="#empresa" class="hover:text-[#C5A059]">Empresa</a>
+                <a href="#productos" class="hover:text-[#C5A059]">Productos</a>
+                <a href="#contacto" class="hover:text-[#C5A059]">Contacto</a>
             </nav>
         </div>
     </header>
 
-    <section class="hero-gradient h-[90vh] flex items-center px-6 md:px-16 pt-20">
-        <div class="max-w-5xl">
-            <div class="w-20 h-1 bg-gold mb-6"></div>
+    <section id="inicio" class="hero-industrial h-screen flex items-center px-6 md:px-16 pt-20">
+        <div class="max-w-4xl">
+            <div class="gold-line mb-8"></div>
             <h1 class="text-5xl md:text-7xl font-heading font-black text-white uppercase leading-none mb-6">
-                Precisión en cada <br><span class="text-inpace-gold">Milímetro de Acero.</span>
+                Solidez industrial para un <br><span class="text-[#C5A059]">Paraguay que construye.</span>
             </h1>
-            <p class="text-xl text-gray-200 mb-10 max-w-2xl font-light">
-                Líderes en el mercado paraguayo. Transformamos acero en soluciones estructurales con certificación de calidad internacional.
-            </p>
-            <div class="flex flex-wrap gap-4">
-                <a href="#ingenieria" class="bg-gold text-white px-8 py-4 font-bold uppercase text-xs tracking-widest hover:bg-white hover:text-inpace-blue transition">Ingeniería de Armado</a>
-                <a href="#productos" class="border-2 border-white text-white px-8 py-4 font-bold uppercase text-xs tracking-widest hover:bg-white hover:text-inpace-blue transition shadow-xl">Ver Productos</a>
-            </div>
+            <h2 class="text-xl md:text-2xl text-gray-200 mb-10 font-light max-w-2xl">
+                Elementos de acero para la construcción civil y cerramientos perimetrales.
+            </h2>
+            <a href="#productos" class="inline-block bg-[#C5A059] text-white px-10 py-5 font-bold uppercase text-xs tracking-widest hover:bg-[#003366] transition shadow-2xl">Ver productos</a>
         </div>
     </section>
 
-    <section id="empresa" class="py-24 px-6 bg-inpace-light">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+    <section id="empresa" class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
             <div>
-                <h2 class="text-inpace-blue font-bold uppercase tracking-widest text-xs mb-2">Sobre INPACE S.A.</h2>
-                <h3 class="text-4xl font-heading font-black uppercase mb-8 border-b-4 border-gold inline-block pb-2">Trayectoria Industrial</h3>
-                <div class="space-y-6 text-gray-700 leading-relaxed">
-                    <p><strong>INPACE</strong> es una empresa paraguaya con décadas de experiencia dedicada a la provisión, transformación y logística de productos ferrosos para la construcción civil e industrial. Nuestra planta cuenta con tecnología de punta para el procesamiento de acero, garantizando productos que cumplen con las normas <strong>ASTM A615</strong> y <strong>NM 07</strong>.</p>
-                    <p>No somos simplemente proveedores; somos socios estratégicos en la obra. Nuestra infraestructura nos permite gestionar grandes volúmenes de carga y despachos coordinados "Justo a Tiempo", reduciendo los costos operativos de nuestros clientes y eliminando el desperdicio de material en el sitio de construcción.</p>
-                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm font-semibold uppercase italic">
-                        <li><i data-lucide="check-circle" class="inline w-4 h-4 mr-2 text-gold"></i> Certificación de Ductilidad</li>
-                        <li><i data-lucide="check-circle" class="inline w-4 h-4 mr-2 text-gold"></i> Logística con Flota Propia</li>
-                        <li><i data-lucide="check-circle" class="inline w-4 h-4 mr-2 text-gold"></i> Asesoramiento Estructural</li>
-                        <li><i data-lucide="check-circle" class="inline w-4 h-4 mr-2 text-gold"></i> Control de Calidad Riguroso</li>
-                    </ul>
+                <h3 class="text-[#C5A059] font-bold uppercase tracking-widest text-xs mb-4">Trayectoria de sólida confianza</h3>
+                <h4 class="text-4xl font-heading font-black uppercase text-[#003366] mb-8 italic">Desde 2005 acompañando el crecimiento de la construcción en Paraguay.</h4>
+                <div class="space-y-6 text-gray-600 leading-relaxed text-sm">
+                    <p>Somos una industria paraguaya dedicada a la transformación del acero para la construcción. Nuestra trayectoria se sostiene en un proceso de evolución permanente y de compromiso activo con la construcción moderna.</p>
+                    <p>Con una visión industrial coherente, convertimos el rigor técnico en productos confiables, construyendo relaciones de largo plazo en todo el país.</p>
+                </div>
+                <div class="mt-10 p-6 bg-[#F4F7F9] border-l-4 border-[#003366] italic text-sm text-[#003366]">
+                    "Integrando procesos, tecnología y talento nacional."
                 </div>
             </div>
-            <div class="grid grid-cols-2 gap-4">
-                <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80" class="rounded shadow-xl h-64 w-full object-cover">
-                <img src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80" class="rounded shadow-xl h-64 w-full object-cover mt-8">
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1581094128547-138305578cc0?auto=format&fit=crop&q=80" alt="Planta Industrial INPACE" class="rounded shadow-2xl">
+                <div class="absolute -bottom-6 -left-6 bg-[#C5A059] p-8 text-white hidden md:block">
+                    <p class="text-xs uppercase font-bold tracking-widest">Norma Técnica</p>
+                    <p class="text-2xl font-black italic">INTN–ATP500</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="ingenieria" class="py-24 px-6 bg-white">
+    <section class="py-20 bg-[#003366] text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-wrap items-center justify-between gap-10">
+                <div class="max-w-md">
+                    <h3 class="text-3xl font-heading font-black uppercase mb-4">Proceso Industrial Integrado</h3>
+                    <p class="text-gray-300 text-sm">Dos plantas especializadas que integran trefilación, conformado, electrosoldado y galvanizado por inmersión en caliente.</p>
+                </div>
+                <div class="flex gap-8 overflow-x-auto pb-4">
+                    <div class="text-center min-w-[120px]">
+                        <div class="w-16 h-16 border-2 border-[#C5A059] rounded-full flex items-center justify-center mx-auto mb-4 italic font-black">01</div>
+                        <p class="text-[10px] uppercase font-bold tracking-tighter">Trefilado</p>
+                    </div>
+                    <div class="text-center min-w-[120px]">
+                        <div class="w-16 h-16 border-2 border-[#C5A059] rounded-full flex items-center justify-center mx-auto mb-4 italic font-black">02</div>
+                        <p class="text-[10px] uppercase font-bold tracking-tighter">Conformado</p>
+                    </div>
+                    <div class="text-center min-w-[120px]">
+                        <div class="w-16 h-16 border-2 border-[#C5A059] rounded-full flex items-center justify-center mx-auto mb-4 italic font-black">03</div>
+                        <p class="text-[10px] uppercase font-bold tracking-tighter">Electrosoldado</p>
+                    </div>
+                    <div class="text-center min-w-[120px]">
+                        <div class="w-16 h-16 border-2 border-[#C5A059] rounded-full flex items-center justify-center mx-auto mb-4 italic font-black">04</div>
+                        <p class="text-[10px] uppercase font-bold tracking-tighter">Galvanizado</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="productos" class="py-24 px-6 bg-[#F4F7F9]">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-                <div class="max-w-2xl">
-                    <h2 class="text-gold font-bold uppercase tracking-widest text-xs mb-2">Ingeniería de Armaduras</h2>
-                    <h3 class="text-5xl font-heading font-black uppercase text-inpace-blue">Servicio de Corte, Doblado y Armado</h3>
-                    <p class="mt-6 text-gray-600">El servicio que revoluciona la eficiencia en obra. Procesamos el acero directamente desde su planilla de hierro utilizando maquinaria CNC italiana, entregando piezas listas para ser instaladas.</p>
-                </div>
-                <div class="bg-inpace-blue text-white p-8 border-l-8 border-gold">
-                    <p class="text-4xl font-black italic">0%</p>
-                    <p class="text-[10px] uppercase font-bold tracking-widest">Desperdicio de Chatarra</p>
-                </div>
+            <div class="text-center mb-20">
+                <h3 class="text-4xl font-heading font-black uppercase text-[#003366]">Nuestras líneas de productos</h3>
+                <div class="gold-line mx-auto mt-4"></div>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="p-8 border-t-4 border-inpace-blue bg-gray-50">
-                    <h4 class="font-bold text-xl mb-4 text-inpace-blue">1. Optimización CNC</h4>
-                    <p class="text-sm text-gray-600 mb-6">Utilizamos software de vanguardia para aprovechar cada centímetro de la barra, reduciendo el residuo al mínimo técnico imposible de alcanzar manualmente.</p>
-                    <img src="https://images.unsplash.com/photo-1581094128547-138305578cc0?auto=format&fit=crop&q=80" class="w-full h-40 object-cover rounded">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-10 tech-card group shadow-sm hover:shadow-xl transition-all">
+                    <h4 class="text-2xl font-heading font-black text-[#003366] uppercase mb-4">Refuerzo Estructural</h4>
+                    <p class="text-sm text-gray-500 mb-8">Varillas y mallas de acero para hormigón armado bajo norma INTN-ATP500.</p>
+                    <div class="flex flex-col gap-3">
+                        <button onclick="openTab('varillas')" class="text-left text-xs font-bold text-[#C5A059] hover:translate-x-2 transition uppercase">→ Varillas de Acero</button>
+                        <button onclick="openTab('mallas')" class="text-left text-xs font-bold text-[#C5A059] hover:translate-x-2 transition uppercase">→ Mallas Electrosoldadas</button>
+                    </div>
                 </div>
-                <div class="p-8 border-t-4 border-gold bg-gray-50">
-                    <h4 class="font-bold text-xl mb-4 text-inpace-blue">2. Doblado de Precisión</h4>
-                    <p class="text-sm text-gray-600 mb-6">Estribos, barras dobladas y pernos con ángulos exactos según el diseño estructural, eliminando errores de interpretación en obra y garantizando el recubrimiento del hormigón.</p>
-                    <img src="https://images.unsplash.com/photo-1565610222536-ef125c59da2e?auto=format&fit=crop&q=80" class="w-full h-40 object-cover rounded">
-                </div>
-                <div class="p-8 border-t-4 border-inpace-blue bg-gray-50">
-                    <h4 class="font-bold text-xl mb-4 text-inpace-blue">3. Identificación y Logística</h4>
-                    <p class="text-sm text-gray-600 mb-6">Cada paquete llega a la obra debidamente etiquetado con su código de posición, diámetro y ubicación en el plano, facilitando el trabajo del armador.</p>
-                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80" class="w-full h-40 object-cover rounded">
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="productos" class="py-24 px-6 bg-inpace-light">
-        <div class="max-w-7xl mx-auto">
-            <h3 class="text-4xl font-heading font-black uppercase text-center text-inpace-blue mb-20">Nuestra Línea de Productos</h3>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-white group cursor-pointer shadow-lg hover:shadow-2xl transition overflow-hidden border-b-4 border-gold" onclick="openProduct('varillas')">
-                    <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
-                    <div class="p-6">
-                        <h4 class="font-bold text-lg text-inpace-blue uppercase">Varillas Conformadas</h4>
-                        <p class="text-[10px] text-gray-500 mt-2 font-bold uppercase">Grado 60 / ASTM A615</p>
-                        <button class="mt-4 text-xs font-bold text-gold uppercase border-b-2 border-gold">Ver Ficha Técnica</button>
-                    </div>
+                <div class="bg-white p-10 tech-card group shadow-sm hover:shadow-xl transition-all">
+                    <h4 class="text-2xl font-heading font-black text-[#003366] uppercase mb-4">Armaduras Prearmadas</h4>
+                    <p class="text-sm text-gray-500 mb-8">Industrialización de armaduras: columnas, vigas y trelizas listas para montar en obra.</p>
+                    <button onclick="openTab('armaduras')" class="text-xs font-bold text-[#C5A059] uppercase border-b-2 border-[#C5A059] pb-1">Ver detalles técnicos</button>
                 </div>
-                <div class="bg-white group cursor-pointer shadow-lg hover:shadow-2xl transition overflow-hidden border-b-4 border-gold" onclick="openProduct('mallas')">
-                    <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1533038590840-1cde6e668a91?auto=format&fit=crop&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
-                    <div class="p-6">
-                        <h4 class="font-bold text-lg text-inpace-blue uppercase">Mallas Electrosoldadas</h4>
-                        <p class="text-[10px] text-gray-500 mt-2 font-bold uppercase">Paneles Estándar e Ingeniería</p>
-                        <button class="mt-4 text-xs font-bold text-gold uppercase border-b-2 border-gold">Ver Ficha Técnica</button>
-                    </div>
+
+                <div class="bg-white p-10 tech-card group shadow-sm hover:shadow-xl transition-all">
+                    <h4 class="text-2xl font-heading font-black text-[#003366] uppercase mb-4">Cerramientos Galvanizados</h4>
+                    <p class="text-sm text-gray-500 mb-8">Paneles rígidos y mallas en rollo con protección de zinc por inmersión en caliente.</p>
+                    <button onclick="openTab('cerramientos')" class="text-xs font-bold text-[#C5A059] uppercase border-b-2 border-[#C5A059] pb-1">Ver aplicaciones</button>
                 </div>
-                <div class="bg-white group cursor-pointer shadow-lg hover:shadow-2xl transition overflow-hidden border-b-4 border-gold" onclick="openProduct('cerramientos')">
-                    <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1620055375841-860888691f1b?auto=format&fit=crop&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
-                    <div class="p-6">
-                        <h4 class="font-bold text-lg text-inpace-blue uppercase">Cerramientos Perimetrales</h4>
-                        <p class="text-[10px] text-gray-500 mt-2 font-bold uppercase">Tejidos y Postes de Acero</p>
-                        <button class="mt-4 text-xs font-bold text-gold uppercase border-b-2 border-gold">Ver Ficha Técnica</button>
-                    </div>
-                </div>
-                <div class="bg-white group cursor-pointer shadow-lg hover:shadow-2xl transition overflow-hidden border-b-4 border-gold" onclick="openProduct('armaduras')">
-                    <div class="h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1513245543132-31f507417b26?auto=format&fit=crop&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500"></div>
-                    <div class="p-6">
-                        <h4 class="font-bold text-lg text-inpace-blue uppercase">Armaduras Industriales</h4>
-                        <p class="text-[10px] text-gray-500 mt-2 font-bold uppercase">Vigas, Columnas y Trelizas</p>
-                        <button class="mt-4 text-xs font-bold text-gold uppercase border-b-2 border-gold">Ver Ficha Técnica</button>
-                    </div>
+
+                <div class="bg-white p-10 tech-card group shadow-sm hover:shadow-xl transition-all">
+                    <h4 class="text-2xl font-heading font-black text-[#003366] uppercase mb-4">Alambrado y Amarre</h4>
+                    <p class="text-sm text-gray-500 mb-8">Alambres de alta resistencia para cercado rural y alambre recocido para atado de varillas.</p>
+                    <button onclick="openTab('alambres')" class="text-xs font-bold text-[#C5A059] uppercase border-b-2 border-[#C5A059] pb-1">Especificaciones</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <div id="modalOverlay" class="fixed inset-0 bg-black/90 z-[100] hidden flex items-center justify-center p-4 overflow-y-auto">
-        <div class="bg-white w-full max-w-4xl p-8 md:p-12 relative shadow-2xl rounded-sm">
-            <button onclick="closeModal()" class="absolute top-6 right-6 text-gray-400 hover:text-inpace-blue"><i data-lucide="x" class="w-8 h-8"></i></button>
-            <div id="modalContent"></div>
+    <div id="modal" class="fixed inset-0 z-[100] hidden bg-black/90 flex items-center justify-center p-4">
+        <div class="bg-white w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-sm relative shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-[#003366] hover:text-[#C5A059]"><i data-lucide="x-circle" class="w-10 h-10"></i></button>
+            <div id="modalContent" class="p-8 md:p-16"></div>
         </div>
     </div>
 
-    <section id="contacto" class="py-24 px-6 bg-inpace-blue text-white">
+    <section id="contacto" class="py-24 px-6 bg-[#003366] text-white">
         <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20">
             <div>
-                <h3 class="text-4xl font-heading font-black uppercase mb-8">Hablemos de su Proyecto</h3>
-                <p class="text-gray-300 mb-10 leading-relaxed">Nuestro departamento técnico está listo para analizar sus planos y proponer la mejor estrategia de optimización de acero.</p>
-                <div class="space-y-6">
-                    <div class="flex items-center gap-4"><i data-lucide="map-pin" class="text-gold"></i><span>Mariano Roque Alonso, Paraguay.</span></div>
-                    <div class="flex items-center gap-4"><i data-lucide="phone" class="text-gold"></i><span>+595 21 000 000</span></div>
-                    <div class="flex items-center gap-4"><i data-lucide="mail" class="text-gold"></i><span>ventas@inpace.com.py</span></div>
+                <h3 class="text-5xl font-heading font-black uppercase mb-8">Hablemos de ingeniería.</h3>
+                <p class="text-gray-300 mb-10 text-lg font-light">Contamos con un equipo técnico especializado para la interpretación de sus planillas y optimización de materiales.</p>
+                <div class="space-y-6 text-sm">
+                    <div class="flex items-center gap-4"><i data-lucide="map-pin" class="text-[#C5A059]"></i><span>Planta Industrial: Mariano Roque Alonso, Paraguay</span></div>
+                    <div class="flex items-center gap-4"><i data-lucide="phone" class="text-[#C5A059]"></i><span>+595 21 000 0000</span></div>
+                    <div class="flex items-center gap-4"><i data-lucide="mail" class="text-[#C5A059]"></i><span>ventas@inpace.com.py</span></div>
                 </div>
             </div>
-            <form class="bg-white p-10 rounded shadow-2xl space-y-4">
-                <input type="text" placeholder="Nombre y Apellido" class="w-full border-b-2 border-gray-200 p-3 focus:border-gold outline-none text-gray-800">
-                <input type="email" placeholder="Email" class="w-full border-b-2 border-gray-200 p-3 focus:border-gold outline-none text-gray-800">
-                <textarea placeholder="Descripción del requerimiento" class="w-full border-b-2 border-gray-200 p-3 focus:border-gold outline-none h-32 text-gray-800"></textarea>
-                <button class="w-full bg-gold text-white py-4 font-bold uppercase tracking-widest hover:bg-inpace-blue transition">Solicitar Cotización</button>
+            <form class="bg-white p-10 space-y-6 shadow-2xl">
+                <h4 class="text-[#003366] font-black uppercase tracking-widest text-sm mb-4">Solicitud de Cotización</h4>
+                <input type="text" placeholder="Nombre / Empresa" class="w-full border-b border-gray-300 py-3 outline-none focus:border-[#C5A059] text-gray-800">
+                <input type="email" placeholder="Correo electrónico" class="w-full border-b border-gray-300 py-3 outline-none focus:border-[#C5A059] text-gray-800">
+                <textarea placeholder="Detalle del pedido o consulta técnica" class="w-full border-b border-gray-300 py-3 outline-none focus:border-[#C5A059] h-32 text-gray-800"></textarea>
+                <button class="w-full bg-[#C5A059] text-white py-5 font-bold uppercase text-xs tracking-[0.2em] hover:bg-[#003366] transition">Enviar requerimiento</button>
             </form>
         </div>
     </section>
 
-    <footer class="bg-inpace-dark text-white py-10 px-6 border-t border-gold text-center">
-        <p class="text-[10px] uppercase tracking-[0.4em] opacity-60">© 2026 INPACE S.A. | Todos los derechos reservados</p>
+    <footer class="bg-[#001f3d] py-10 text-center border-t-2 border-[#C5A059]">
+        <p class="text-[9px] uppercase tracking-[0.5em] text-white/50">© 2026 INPACE S.A. | Industria Paraguaya de Acero</p>
     </footer>
 
     <script>
         lucide.createIcons();
 
-        const data = {
-            varillas: {
-                title: "Varillas Conformadas de Alta Resistencia",
-                img: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80",
-                text: "Varillas de acero para hormigón armado, producidas según especificaciones técnicas internacionales de ductilidad y resistencia a la fluencia.",
-                table: `
-                    <table class="tech-table w-full mt-6">
-                        <thead><tr><th>Diámetro (mm)</th><th>Peso (kg/m)</th><th>Área (cm²)</th></tr></thead>
-                        <tbody>
-                            <tr><td>6.0</td><td>0.222</td><td>0.283</td></tr>
-                            <tr><td>10.0</td><td>0.617</td><td>0.785</td></tr>
-                            <tr><td>12.0</td><td>0.888</td><td>1.131</td></tr>
-                            <tr><td>16.0</td><td>1.578</td><td>2.011</td></tr>
-                        </tbody>
-                    </table>
-                `
-            },
-            mallas: {
-                title: "Mallas Electrosoldadas",
-                img: "https://images.unsplash.com/photo-1533038590840-1cde6e668a91?auto=format&fit=crop&q=80",
-                text: "Mallas constituidas por barras de acero dispuestas en forma ortogonal y soldadas en todos los puntos de intersección.",
-                table: `
-                    <table class="tech-table w-full mt-6">
-                        <thead><tr><th>Tipo</th><th>Separación (cm)</th><th>Ø Barra (mm)</th></tr></thead>
-                        <tbody>
-                            <tr><td>Q92</td><td>15 x 15</td><td>4.2</td></tr>
-                            <tr><td>Q138</td><td>15 x 15</td><td>5.0</td></tr>
-                            <tr><td>Q188</td><td>15 x 15</td><td>6.0</td></tr>
-                        </tbody>
-                    </table>
-                `
-            },
-            cerramientos: {
-                title: "Cerramientos Perimetrales",
-                img: "https://images.unsplash.com/photo-1620055375841-860888691f1b?auto=format&fit=crop&q=80",
-                text: "Sistemas integrales para delimitación de perímetros, desde tejidos romboidales hasta postes de acero galvanizado.",
-                table: `
-                    <table class="tech-table w-full mt-6">
-                        <thead><tr><th>Producto</th><th>Material</th><th>Uso</th></tr></thead>
-                        <tbody>
-                            <tr><td>Tejido Romboidal</td><td>Galvanizado</td><td>Seguridad</td></tr>
-                            <tr><td>Postes de Acero</td><td>Hormigón/Acero</td><td>Industrial</td></tr>
-                            <tr><td>Concertinas</td><td>Inoxidable</td><td>Alta Seguridad</td></tr>
-                        </tbody>
-                    </table>
-                `
-            },
-            armaduras: {
-                title: "Armaduras Industriales Pre-ensambladas",
-                img: "https://images.unsplash.com/photo-1513245543132-31f507417b26?auto=format&fit=crop&q=80",
-                text: "Vigas, columnas y trelizas fabricadas a medida. El material llega listo para el izado y montaje, reduciendo el personal en obra.",
-                table: `
-                    <div class="p-4 bg-blue-50 border-l-4 border-gold text-sm mt-4 italic">
-                        "Consulte por nuestro servicio de armado de pilotes y muros pantalla para cimentaciones profundas."
-                    </div>
-                `
-            }
-        };
-
-        function openProduct(id) {
-            const p = data[id];
-            document.getElementById('modalContent').innerHTML = `
+        const content = {
+            varillas: `
+                <h2 class="text-4xl font-heading font-black text-[#003366] uppercase mb-6">Varillas Conformadas ATP500</h2>
+                <p class="text-gray-600 mb-8 leading-relaxed">Barras de acero producidas bajo norma INTN–ATP500 con límite de fluencia mínimo de 500 MPa. Su comportamiento dúctil permite radios de doblado repetitivos sin fisuras.</p>
                 <div class="grid md:grid-cols-2 gap-10">
-                    <img src="${p.img}" class="w-full h-80 object-cover rounded shadow-lg">
                     <div>
-                        <h2 class="text-3xl font-heading font-black text-inpace-blue uppercase mb-4">${p.title}</h2>
-                        <p class="text-gray-600 leading-relaxed text-sm">${p.text}</p>
-                        ${p.table}
-                        <button onclick="closeModal()" class="mt-10 bg-inpace-blue text-white px-8 py-4 w-full font-bold uppercase text-xs tracking-widest">Cerrar Ficha Técnica</button>
+                        <h3 class="font-bold text-[#C5A059] uppercase text-xs mb-4 italic">Medidas Disponibles (mm)</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 px-4 py-2 text-sm font-bold">6</span>
+                            <span class="bg-gray-100 px-4 py-2 text-sm font-bold">8</span>
+                            <span class="bg-gray-100 px-4 py-2 text-sm font-bold">10</span>
+                            <span class="bg-gray-100 px-4 py-2 text-sm font-bold">12</span>
+                        </div>
+                        <h3 class="font-bold text-[#C5A059] uppercase text-xs mt-8 mb-4 italic text-gray-400">Medidas Alternativas (Optimización)</h3>
+                        <div class="flex flex-wrap gap-2 opacity-60">
+                            <span class="bg-gray-100 px-4 py-2 text-sm">4</span><span class="bg-gray-100 px-4 py-2 text-sm">5</span>
+                            <span class="bg-gray-100 px-4 py-2 text-sm">7</span><span class="bg-gray-100 px-4 py-2 text-sm">9</span>
+                            <span class="bg-gray-100 px-4 py-2 text-sm">11</span>
+                        </div>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80" class="w-full h-64 object-cover rounded shadow-lg">
+                </div>
+            `,
+            mallas: `
+                <h2 class="text-4xl font-heading font-black text-[#003366] uppercase mb-6">Mallas Electrosoldadas</h2>
+                <p class="text-gray-600 mb-8">Utilizadas para el control de fisuración y distribución de refuerzo en losas y pisos industriales. Unión mediante soldadura eléctrica por resistencia.</p>
+                <table class="table-inpace w-full">
+                    <thead><tr><th>Configuración</th><th>Panel / Rollo</th><th>Aplicación</th></tr></thead>
+                    <tbody>
+                        <tr><td>Estándar</td><td>15x15 / 2.4x6.0m</td><td>Losas de edificios</td></tr>
+                        <tr><td>Ingeniería</td><td>A medida</td><td>Pavimentos Industriales</td></tr>
+                    </tbody>
+                </table>
+            `,
+            armaduras: `
+                <h2 class="text-4xl font-heading font-black text-[#003366] uppercase mb-6">Armaduras Prearmadas</h2>
+                <p class="text-gray-600 mb-8">Industrialización que reduce pérdidas y optimiza el tiempo de montaje. Armaduras listas para colocar en encofrado.</p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gray-50 p-6 border-t-4 border-[#C5A059]">
+                        <h4 class="font-bold uppercase text-sm mb-2">Columnas y Vigas</h4>
+                        <p class="text-xs text-gray-500">Secciones cuadradas o rectangulares con estribos electrosoldados.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 border-t-4 border-[#C5A059]">
+                        <h4 class="font-bold uppercase text-sm mb-2">Trelizas (Reticuladas)</h4>
+                        <p class="text-xs text-gray-500">Alturas hasta 25cm para sistemas de losa alivianada.</p>
                     </div>
                 </div>
-            `;
-            document.getElementById('modalOverlay').classList.remove('hidden');
+            `,
+            cerramientos: `
+                <h2 class="text-4xl font-heading font-black text-[#003366] uppercase mb-6">Cerramientos Galvanizados</h2>
+                <p class="text-gray-600 mb-8">Mallas y paneles con galvanizado por inmersión en caliente. Máxima protección contra la corrosión en exteriores.</p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="border p-6">
+                        <h4 class="font-bold uppercase text-xs text-[#C5A059] mb-2">Paneles Rígidos</h4>
+                        <p class="text-sm">Plegado en "V" para mayor inercia. Uso residencial e industrial.</p>
+                    </div>
+                    <div class="border p-6">
+                        <h4 class="font-bold uppercase text-xs text-[#C5A059] mb-2">Mallas en Rollo</h4>
+                        <p class="text-sm">Calibres ligeros y medios para cercos continuos.</p>
+                    </div>
+                </div>
+            `,
+            alambres: `
+                <h2 class="text-4xl font-heading font-black text-[#003366] uppercase mb-6">Alambrado y Amarre</h2>
+                <p class="text-gray-600 mb-8 text-sm">Alambres galvanizados de alta resistencia para cercos rurales y alambre recocido de alta ductilidad para amarre en obra.</p>
+                <div class="bg-[#003366] text-white p-6">
+                    <p class="text-xs italic">"Combinamos resistencia mecánica y facilidad de trabajo manual."</p>
+                </div>
+            `
+        };
+
+        function openTab(id) {
+            document.getElementById('modalContent').innerHTML = content[id];
+            document.getElementById('modal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
-            document.getElementById('modalOverlay').classList.add('hidden');
+            document.getElementById('modal').classList.add('hidden');
             document.body.style.overflow = 'auto';
         }
     </script>
