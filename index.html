@@ -13,26 +13,32 @@
             --inpace-gold: #C5A059; 
             --inpace-light: #F4F7F9;
         }
-        body { font-family: 'Inter', sans-serif; color: #1a1a1a; scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: #1a1a1a; scroll-behavior: smooth; overflow-x: hidden; }
         .font-heading { font-family: 'Barlow', sans-serif; }
         
         .hero-industrial {
-            background: linear-gradient(rgba(0,51,102,0.8), rgba(0,31,61,0.9)), 
+            background: linear-gradient(rgba(0,51,102,0.85), rgba(0,31,61,0.9)), 
             url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80');
             background-size: cover; background-position: center;
         }
         .gold-line { height: 4px; width: 60px; background-color: var(--inpace-gold); }
         .tech-card { border-left: 4px solid var(--inpace-gold); transition: all 0.3s ease; }
-        .tech-card:hover { transform: translateX(10px); background-color: #fff; }
         
-        .table-inpace th { background-color: var(--inpace-blue); color: white; padding: 12px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; }
+        /* Ajuste para tablas en móvil */
+        .table-container { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .table-inpace { min-width: 500px; width: 100%; }
+        .table-inpace th { background-color: var(--inpace-blue); color: white; padding: 12px; font-size: 0.7rem; text-transform: uppercase; text-align: left; }
         .table-inpace td { padding: 12px; border-bottom: 1px solid #e5e7eb; font-size: 0.85rem; }
+
+        /* Menú Móvil */
+        #mobile-menu { transition: transform 0.3s ease-in-out; }
+        #mobile-menu.hidden-menu { transform: translateX(100%); }
     </style>
 </head>
 <body class="bg-white">
 
-    <header class="fixed w-full z-50 bg-white/95 backdrop-blur shadow-sm border-b-4 border-gold">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <header class="fixed w-full z-[100] bg-white shadow-md border-b-4 border-[#C5A059]">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 md:py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-[#003366] flex items-center justify-center border-b-4 border-r-4 border-[#C5A059]">
                     <span class="text-white font-black text-xl italic">I</span>
@@ -42,226 +48,192 @@
                     <span class="block text-[8px] uppercase tracking-[0.3em] font-bold text-gray-400">Industria Paraguaya</span>
                 </div>
             </div>
+            
             <nav class="hidden lg:flex space-x-8 text-[10px] font-bold uppercase tracking-widest text-[#003366]">
-                <a href="#inicio" class="hover:text-[#C5A059]">Inicio</a>
-                <a href="#empresa" class="hover:text-[#C5A059]">Empresa</a>
-                <a href="#productos" class="hover:text-[#C5A059]">Productos</a>
-                <a href="#contacto" class="hover:text-[#C5A059]">Contacto</a>
+                <a href="#inicio" class="hover:text-[#C5A059] transition">Inicio</a>
+                <a href="#empresa" class="hover:text-[#C5A059] transition">Empresa</a>
+                <a href="#productos" class="hover:text-[#C5A059] transition">Productos</a>
+                <a href="#contacto" class="hover:text-[#C5A059] transition">Contacto</a>
             </nav>
+
+            <button class="lg:hidden p-2 text-[#003366]" onclick="toggleMenu()">
+                <i data-lucide="menu" id="menu-icon"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="fixed top-[72px] right-0 w-full h-screen bg-[#003366] z-[90] hidden-menu lg:hidden p-10 flex flex-col space-y-8 text-center">
+            <a href="#inicio" onclick="toggleMenu()" class="text-white text-xl font-bold uppercase tracking-widest">Inicio</a>
+            <a href="#empresa" onclick="toggleMenu()" class="text-white text-xl font-bold uppercase tracking-widest">Empresa</a>
+            <a href="#productos" onclick="toggleMenu()" class="text-white text-xl font-bold uppercase tracking-widest">Productos</a>
+            <a href="#contacto" onclick="toggleMenu()" class="text-white text-xl font-bold uppercase tracking-widest">Contacto</a>
         </div>
     </header>
 
-    <section id="inicio" class="hero-industrial h-screen flex items-center px-6 md:px-16 pt-20">
+    <section id="inicio" class="hero-industrial h-[100vh] flex items-center px-6 md:px-16">
         <div class="max-w-4xl">
-            <div class="gold-line mb-8"></div>
-            <h1 class="text-5xl md:text-7xl font-heading font-black text-white uppercase leading-none mb-6">
+            <div class="gold-line mb-6"></div>
+            <h1 class="text-4xl md:text-7xl font-heading font-black text-white uppercase leading-tight mb-6">
                 Solidez industrial para un <br><span class="text-[#C5A059]">Paraguay que construye.</span>
             </h1>
-            <h2 class="text-xl md:text-2xl text-gray-200 mb-10 font-light max-w-2xl">
-                Elementos de acero para la construcción civil y cerramientos perimetrales.
-            </h2>
-            <a href="#productos" class="inline-block bg-[#C5A059] text-white px-10 py-5 font-bold uppercase text-xs tracking-widest hover:bg-[#003366] transition shadow-2xl">Ver productos</a>
+            <p class="text-lg md:text-xl text-gray-200 mb-10 font-light max-w-2xl">
+                Elementos de acero para la construcción civil y cerramientos perimetrales conforme a normas internacionales.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#productos" class="text-center bg-[#C5A059] text-white px-10 py-5 font-bold uppercase text-xs tracking-widest hover:bg-white hover:text-[#003366] transition shadow-xl">Ver productos</a>
+                <a href="#contacto" class="text-center border-2 border-white text-white px-10 py-5 font-bold uppercase text-xs tracking-widest hover:bg-white hover:text-[#003366] transition">Contacto técnico</a>
+            </div>
         </div>
     </section>
 
-    <section id="empresa" class="py-24 px-6 bg-white">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
-            <div>
+    <section id="empresa" class="py-16 md:py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
+            <div class="order-2 lg:order-1">
                 <h3 class="text-[#C5A059] font-bold uppercase tracking-widest text-xs mb-4">Trayectoria de sólida confianza</h3>
-                <h4 class="text-4xl font-heading font-black uppercase text-[#003366] mb-8 italic">Desde 2005 acompañando el crecimiento de la construcción en Paraguay.</h4>
-                <div class="space-y-6 text-gray-600 leading-relaxed text-sm">
-                    <p>Somos una industria paraguaya dedicada a la transformación del acero para la construcción. Nuestra trayectoria se sostiene en un proceso de evolución permanente y de compromiso activo con la construcción moderna.</p>
-                    <p>Con una visión industrial coherente, convertimos el rigor técnico en productos confiables, construyendo relaciones de largo plazo en todo el país.</p>
-                </div>
-                <div class="mt-10 p-6 bg-[#F4F7F9] border-l-4 border-[#003366] italic text-sm text-[#003366]">
-                    "Integrando procesos, tecnología y talento nacional."
+                <h4 class="text-3xl md:text-4xl font-heading font-black uppercase text-[#003366] mb-8 italic">Desde 2005 acompañando el crecimiento del país.</h4>
+                <div class="space-y-6 text-gray-600 leading-relaxed text-sm md:text-base">
+                    <p>Somos una industria paraguaya dedicada a la transformación del acero. Nuestra trayectoria se sostiene en un proceso de evolución permanente y de compromiso activo con la construcción moderna.</p>
+                    <p>Con una visión industrial coherente, convertimos el rigor técnico en productos confiables, construyendo relaciones de largo plazo en todo el territorio nacional.</p>
                 </div>
             </div>
-            <div class="relative">
-                <img src="https://images.unsplash.com/photo-1581094128547-138305578cc0?auto=format&fit=crop&q=80" alt="Planta Industrial INPACE" class="rounded shadow-2xl">
-                <div class="absolute -bottom-6 -left-6 bg-[#C5A059] p-8 text-white hidden md:block">
-                    <p class="text-xs uppercase font-bold tracking-widest">Norma Técnica</p>
-                    <p class="text-2xl font-black italic">INTN–ATP500</p>
+            <div class="relative order-1 lg:order-2">
+                <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80" class="rounded shadow-xl w-full h-64 md:h-auto object-cover">
+                <div class="absolute -bottom-4 -right-4 bg-[#C5A059] p-4 md:p-8 text-white">
+                    <p class="text-[10px] uppercase font-bold tracking-widest">Norma Certificada</p>
+                    <p class="text-xl md:text-2xl font-black italic">INTN–ATP500</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-[#003366] text-white overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-wrap items-center justify-between gap-10">
-                <div class="max-w-md">
-                    <h3 class="text-3xl font-heading font-black uppercase mb-4">Proceso Industrial Integrado</h3>
-                    <p class="text-gray-300 text-sm">Dos plantas especializadas que integran trefilación, conformado, electrosoldado y galvanizado por inmersión en caliente.</p>
-                </div>
-                <div class="flex gap-8 overflow-x-auto pb-4">
-                    <div class="text-center min-w-[120px]">
-                        <div class="w-16 h-16 border-2 border-[#C5A059] rounded-full flex items-center justify-center mx-auto mb-4 italic font-black">01</div>
-                        <p class="text-[10px] uppercase font-bold tracking-tighter">Trefilado</p>
-                    </div>
-                    <div class="text-center min-w-[120px]">
-                        <div class="w-16 h-16 border-2 border-[#C5A059] rounded-full flex items-center justify-center mx-auto mb-4 italic font-black">02</div>
-                        <p class="text-[10px] uppercase font-bold tracking-tighter">Conformado</p>
-                    </div>
-                    <div class="text-center min-w-[120px]">
-                        <div class="w-16 h-16 border-2 border-[#C5A059] rounded-full flex items-center justify-center mx-auto mb-4 italic font-black">03</div>
-                        <p class="text-[10px] uppercase font-bold tracking-tighter">Electrosoldado</p>
-                    </div>
-                    <div class="text-center min-w-[120px]">
-                        <div class="w-16 h-16 border-2 border-[#C5A059] rounded-full flex items-center justify-center mx-auto mb-4 italic font-black">04</div>
-                        <p class="text-[10px] uppercase font-bold tracking-tighter">Galvanizado</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="productos" class="py-24 px-6 bg-[#F4F7F9]">
+    <section id="productos" class="py-16 md:py-24 px-6 bg-[#F4F7F9]">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20">
-                <h3 class="text-4xl font-heading font-black uppercase text-[#003366]">Nuestras líneas de productos</h3>
+            <div class="text-center mb-16">
+                <h3 class="text-3xl md:text-4xl font-heading font-black uppercase text-[#003366]">Líneas de Producción</h3>
                 <div class="gold-line mx-auto mt-4"></div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-10 tech-card group shadow-sm hover:shadow-xl transition-all">
-                    <h4 class="text-2xl font-heading font-black text-[#003366] uppercase mb-4">Refuerzo Estructural</h4>
-                    <p class="text-sm text-gray-500 mb-8">Varillas y mallas de acero para hormigón armado bajo norma INTN-ATP500.</p>
-                    <div class="flex flex-col gap-3">
-                        <button onclick="openTab('varillas')" class="text-left text-xs font-bold text-[#C5A059] hover:translate-x-2 transition uppercase">→ Varillas de Acero</button>
-                        <button onclick="openTab('mallas')" class="text-left text-xs font-bold text-[#C5A059] hover:translate-x-2 transition uppercase">→ Mallas Electrosoldadas</button>
-                    </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div onclick="openTab('varillas')" class="bg-white p-8 tech-card cursor-pointer hover:shadow-lg transition">
+                    <i data-lucide="layers" class="text-[#C5A059] mb-4"></i>
+                    <h4 class="font-bold text-[#003366] uppercase mb-2">Refuerzo Estructural</h4>
+                    <p class="text-xs text-gray-500">Varillas y mallas certificadas.</p>
                 </div>
-
-                <div class="bg-white p-10 tech-card group shadow-sm hover:shadow-xl transition-all">
-                    <h4 class="text-2xl font-heading font-black text-[#003366] uppercase mb-4">Armaduras Prearmadas</h4>
-                    <p class="text-sm text-gray-500 mb-8">Industrialización de armaduras: columnas, vigas y trelizas listas para montar en obra.</p>
-                    <button onclick="openTab('armaduras')" class="text-xs font-bold text-[#C5A059] uppercase border-b-2 border-[#C5A059] pb-1">Ver detalles técnicos</button>
+                <div onclick="openTab('armaduras')" class="bg-white p-8 tech-card cursor-pointer hover:shadow-lg transition">
+                    <i data-lucide="component" class="text-[#C5A059] mb-4"></i>
+                    <h4 class="font-bold text-[#003366] uppercase mb-2">Prearmados</h4>
+                    <p class="text-xs text-gray-500">Columnas, vigas y trelizas.</p>
                 </div>
-
-                <div class="bg-white p-10 tech-card group shadow-sm hover:shadow-xl transition-all">
-                    <h4 class="text-2xl font-heading font-black text-[#003366] uppercase mb-4">Cerramientos Galvanizados</h4>
-                    <p class="text-sm text-gray-500 mb-8">Paneles rígidos y mallas en rollo con protección de zinc por inmersión en caliente.</p>
-                    <button onclick="openTab('cerramientos')" class="text-xs font-bold text-[#C5A059] uppercase border-b-2 border-[#C5A059] pb-1">Ver aplicaciones</button>
+                <div onclick="openTab('cerramientos')" class="bg-white p-8 tech-card cursor-pointer hover:shadow-lg transition">
+                    <i data-lucide="shield-check" class="text-[#C5A059] mb-4"></i>
+                    <h4 class="font-bold text-[#003366] uppercase mb-2">Cerramientos</h4>
+                    <p class="text-xs text-gray-500">Galvanizados por inmersión.</p>
                 </div>
-
-                <div class="bg-white p-10 tech-card group shadow-sm hover:shadow-xl transition-all">
-                    <h4 class="text-2xl font-heading font-black text-[#003366] uppercase mb-4">Alambrado y Amarre</h4>
-                    <p class="text-sm text-gray-500 mb-8">Alambres de alta resistencia para cercado rural y alambre recocido para atado de varillas.</p>
-                    <button onclick="openTab('alambres')" class="text-xs font-bold text-[#C5A059] uppercase border-b-2 border-[#C5A059] pb-1">Especificaciones</button>
+                <div onclick="openTab('alambres')" class="bg-white p-8 tech-card cursor-pointer hover:shadow-lg transition">
+                    <i data-lucide="spline" class="text-[#C5A059] mb-4"></i>
+                    <h4 class="font-bold text-[#003366] uppercase mb-2">Alambrados</h4>
+                    <p class="text-xs text-gray-500">Uso rural y amarre de obra.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <div id="modal" class="fixed inset-0 z-[100] hidden bg-black/90 flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-sm relative shadow-2xl">
-            <button onclick="closeModal()" class="absolute top-6 right-6 text-[#003366] hover:text-[#C5A059]"><i data-lucide="x-circle" class="w-10 h-10"></i></button>
-            <div id="modalContent" class="p-8 md:p-16"></div>
+    <div id="modal" class="fixed inset-0 z-[200] hidden bg-black/95 flex items-center justify-center p-2 md:p-6">
+        <div class="bg-white w-full max-w-4xl max-h-[95vh] overflow-y-auto rounded shadow-2xl relative">
+            <button onclick="closeModal()" class="sticky top-4 left-[90%] md:absolute md:top-6 md:right-6 bg-white rounded-full p-2 shadow-lg">
+                <i data-lucide="x" class="text-[#003366] w-6 h-6"></i>
+            </button>
+            <div id="modalContent" class="p-6 md:p-12 pt-12 md:pt-16"></div>
         </div>
     </div>
 
-    <section id="contacto" class="py-24 px-6 bg-[#003366] text-white">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-20">
+    <section id="contacto" class="py-16 md:py-24 px-6 bg-[#003366] text-white">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20">
             <div>
-                <h3 class="text-5xl font-heading font-black uppercase mb-8">Hablemos de ingeniería.</h3>
-                <p class="text-gray-300 mb-10 text-lg font-light">Contamos con un equipo técnico especializado para la interpretación de sus planillas y optimización de materiales.</p>
-                <div class="space-y-6 text-sm">
-                    <div class="flex items-center gap-4"><i data-lucide="map-pin" class="text-[#C5A059]"></i><span>Planta Industrial: Mariano Roque Alonso, Paraguay</span></div>
-                    <div class="flex items-center gap-4"><i data-lucide="phone" class="text-[#C5A059]"></i><span>+595 21 000 0000</span></div>
-                    <div class="flex items-center gap-4"><i data-lucide="mail" class="text-[#C5A059]"></i><span>ventas@inpace.com.py</span></div>
+                <h3 class="text-4xl font-heading font-black uppercase mb-6">Contáctenos</h3>
+                <p class="text-gray-300 mb-8 font-light">Asesoramiento técnico para optimización de planillas de hierro.</p>
+                <div class="space-y-4 text-sm">
+                    <p class="flex items-center gap-3"><i data-lucide="map-pin" class="w-4 text-[#C5A059]"></i> Mariano Roque Alonso, Paraguay</p>
+                    <p class="flex items-center gap-3"><i data-lucide="mail" class="w-4 text-[#C5A059]"></i> ventas@inpace.com.py</p>
                 </div>
             </div>
-            <form class="bg-white p-10 space-y-6 shadow-2xl">
-                <h4 class="text-[#003366] font-black uppercase tracking-widest text-sm mb-4">Solicitud de Cotización</h4>
-                <input type="text" placeholder="Nombre / Empresa" class="w-full border-b border-gray-300 py-3 outline-none focus:border-[#C5A059] text-gray-800">
-                <input type="email" placeholder="Correo electrónico" class="w-full border-b border-gray-300 py-3 outline-none focus:border-[#C5A059] text-gray-800">
-                <textarea placeholder="Detalle del pedido o consulta técnica" class="w-full border-b border-gray-300 py-3 outline-none focus:border-[#C5A059] h-32 text-gray-800"></textarea>
-                <button class="w-full bg-[#C5A059] text-white py-5 font-bold uppercase text-xs tracking-[0.2em] hover:bg-[#003366] transition">Enviar requerimiento</button>
+            <form class="bg-white p-6 md:p-10 space-y-4 rounded-sm">
+                <input type="text" placeholder="Empresa / Nombre" class="w-full border-b border-gray-200 py-3 text-gray-800 focus:border-[#C5A059] outline-none">
+                <input type="email" placeholder="Email" class="w-full border-b border-gray-200 py-3 text-gray-800 focus:border-[#C5A059] outline-none">
+                <textarea placeholder="Consulta técnica" class="w-full border-b border-gray-300 py-3 text-gray-800 focus:border-[#C5A059] h-24 outline-none"></textarea>
+                <button class="w-full bg-[#C5A059] text-white py-4 font-bold uppercase text-xs tracking-widest hover:bg-[#001f3d] transition">Enviar solicitud</button>
             </form>
         </div>
     </section>
 
-    <footer class="bg-[#001f3d] py-10 text-center border-t-2 border-[#C5A059]">
-        <p class="text-[9px] uppercase tracking-[0.5em] text-white/50">© 2026 INPACE S.A. | Industria Paraguaya de Acero</p>
+    <footer class="bg-[#001f3d] py-8 text-center border-t border-[#C5A059]">
+        <p class="text-[8px] uppercase tracking-widest text-white/40">© 2026 INPACE S.A. | Todos los derechos reservados</p>
     </footer>
 
     <script>
         lucide.createIcons();
 
-        const content = {
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden-menu');
+        }
+
+        const data = {
             varillas: `
-                <h2 class="text-4xl font-heading font-black text-[#003366] uppercase mb-6">Varillas Conformadas ATP500</h2>
-                <p class="text-gray-600 mb-8 leading-relaxed">Barras de acero producidas bajo norma INTN–ATP500 con límite de fluencia mínimo de 500 MPa. Su comportamiento dúctil permite radios de doblado repetitivos sin fisuras.</p>
-                <div class="grid md:grid-cols-2 gap-10">
-                    <div>
-                        <h3 class="font-bold text-[#C5A059] uppercase text-xs mb-4 italic">Medidas Disponibles (mm)</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-gray-100 px-4 py-2 text-sm font-bold">6</span>
-                            <span class="bg-gray-100 px-4 py-2 text-sm font-bold">8</span>
-                            <span class="bg-gray-100 px-4 py-2 text-sm font-bold">10</span>
-                            <span class="bg-gray-100 px-4 py-2 text-sm font-bold">12</span>
-                        </div>
-                        <h3 class="font-bold text-[#C5A059] uppercase text-xs mt-8 mb-4 italic text-gray-400">Medidas Alternativas (Optimización)</h3>
-                        <div class="flex flex-wrap gap-2 opacity-60">
-                            <span class="bg-gray-100 px-4 py-2 text-sm">4</span><span class="bg-gray-100 px-4 py-2 text-sm">5</span>
-                            <span class="bg-gray-100 px-4 py-2 text-sm">7</span><span class="bg-gray-100 px-4 py-2 text-sm">9</span>
-                            <span class="bg-gray-100 px-4 py-2 text-sm">11</span>
-                        </div>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80" class="w-full h-64 object-cover rounded shadow-lg">
+                <h2 class="text-3xl font-heading font-black text-[#003366] uppercase mb-4">Varillas de Acero ATP500</h2>
+                <p class="text-sm text-gray-600 mb-6 italic">Conforme a norma INTN–ATP500.</p>
+                <div class="table-container">
+                    <table class="table-inpace">
+                        <thead><tr><th>Diámetro</th><th>Sección</th><th>Peso (kg/m)</th></tr></thead>
+                        <tbody>
+                            <tr><td>6 mm</td><td>0.28 cm²</td><td>0.222</td></tr>
+                            <tr><td>10 mm</td><td>0.79 cm²</td><td>0.617</td></tr>
+                            <tr><td>12 mm</td><td>1.13 cm²</td><td>0.888</td></tr>
+                            <tr><td>16 mm</td><td>2.01 cm²</td><td>1.578</td></tr>
+                        </tbody>
+                    </table>
                 </div>
-            `,
-            mallas: `
-                <h2 class="text-4xl font-heading font-black text-[#003366] uppercase mb-6">Mallas Electrosoldadas</h2>
-                <p class="text-gray-600 mb-8">Utilizadas para el control de fisuración y distribución de refuerzo en losas y pisos industriales. Unión mediante soldadura eléctrica por resistencia.</p>
-                <table class="table-inpace w-full">
-                    <thead><tr><th>Configuración</th><th>Panel / Rollo</th><th>Aplicación</th></tr></thead>
-                    <tbody>
-                        <tr><td>Estándar</td><td>15x15 / 2.4x6.0m</td><td>Losas de edificios</td></tr>
-                        <tr><td>Ingeniería</td><td>A medida</td><td>Pavimentos Industriales</td></tr>
-                    </tbody>
-                </table>
+                <p class="mt-4 text-[10px] text-gray-400 font-bold uppercase">* Consultar por medidas de optimización: 4, 5, 7, 9, 11 mm.</p>
             `,
             armaduras: `
-                <h2 class="text-4xl font-heading font-black text-[#003366] uppercase mb-6">Armaduras Prearmadas</h2>
-                <p class="text-gray-600 mb-8">Industrialización que reduce pérdidas y optimiza el tiempo de montaje. Armaduras listas para colocar en encofrado.</p>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="bg-gray-50 p-6 border-t-4 border-[#C5A059]">
-                        <h4 class="font-bold uppercase text-sm mb-2">Columnas y Vigas</h4>
-                        <p class="text-xs text-gray-500">Secciones cuadradas o rectangulares con estribos electrosoldados.</p>
+                <h2 class="text-3xl font-heading font-black text-[#003366] uppercase mb-4">Armaduras Prearmadas</h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-gray-50 p-6 border-l-4 border-[#C5A059]">
+                        <h4 class="font-bold text-[#003366] uppercase text-sm mb-2">Vigas y Columnas</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed">Listas para colocar en encofrados. Fabricación CNC para precisión absoluta en estribos.</p>
                     </div>
-                    <div class="bg-gray-50 p-6 border-t-4 border-[#C5A059]">
-                        <h4 class="font-bold uppercase text-sm mb-2">Trelizas (Reticuladas)</h4>
-                        <p class="text-xs text-gray-500">Alturas hasta 25cm para sistemas de losa alivianada.</p>
+                    <div class="bg-gray-50 p-6 border-l-4 border-[#C5A059]">
+                        <h4 class="font-bold text-[#003366] uppercase text-sm mb-2">Trelizas</h4>
+                        <p class="text-xs text-gray-600 leading-relaxed">Alturas hasta 25cm para sistemas de losas alivianadas de alta eficiencia.</p>
                     </div>
                 </div>
             `,
             cerramientos: `
-                <h2 class="text-4xl font-heading font-black text-[#003366] uppercase mb-6">Cerramientos Galvanizados</h2>
-                <p class="text-gray-600 mb-8">Mallas y paneles con galvanizado por inmersión en caliente. Máxima protección contra la corrosión en exteriores.</p>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="border p-6">
-                        <h4 class="font-bold uppercase text-xs text-[#C5A059] mb-2">Paneles Rígidos</h4>
-                        <p class="text-sm">Plegado en "V" para mayor inercia. Uso residencial e industrial.</p>
-                    </div>
-                    <div class="border p-6">
-                        <h4 class="font-bold uppercase text-xs text-[#C5A059] mb-2">Mallas en Rollo</h4>
-                        <p class="text-sm">Calibres ligeros y medios para cercos continuos.</p>
-                    </div>
-                </div>
+                <h2 class="text-3xl font-heading font-black text-[#003366] uppercase mb-4">Cerramientos Galvanizados</h2>
+                <p class="text-sm text-gray-600 mb-6 leading-relaxed">Protección superior mediante galvanizado por inmersión en caliente, ideal para climas húmedos y uso industrial.</p>
+                <ul class="space-y-2 text-sm text-gray-700 font-semibold">
+                
+                    <li>→ Paneles Rígidos (Fácil Montaje)</li>
+                    <li>→ Mallas en Rollo (Cercos Continuos)</li>
+                    
+                </ul>
             `,
             alambres: `
-                <h2 class="text-4xl font-heading font-black text-[#003366] uppercase mb-6">Alambrado y Amarre</h2>
-                <p class="text-gray-600 mb-8 text-sm">Alambres galvanizados de alta resistencia para cercos rurales y alambre recocido de alta ductilidad para amarre en obra.</p>
-                <div class="bg-[#003366] text-white p-6">
-                    <p class="text-xs italic">"Combinamos resistencia mecánica y facilidad de trabajo manual."</p>
+                <h2 class="text-3xl font-heading font-black text-[#003366] uppercase mb-4">Alambrados y Amarres</h2>
+                <div class="space-y-4">
+                    <div class="border-b pb-4">
+                        <h4 class="font-bold text-[#C5A059] text-xs uppercase">Alambre de Amarre</h4>
+                        <p class="text-sm text-gray-600">Alambre recocido de alta maleabilidad para fijación de armaduras.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-[#C5A059] text-xs uppercase">Uso Rural</h4>
+                        <p class="text-sm text-gray-600">Alambres galvanizados de alta resistencia para perímetros extensos.</p>
+                    </div>
                 </div>
             `
         };
 
         function openTab(id) {
-            document.getElementById('modalContent').innerHTML = content[id];
+            document.getElementById('modalContent').innerHTML = data[id];
             document.getElementById('modal').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         }
