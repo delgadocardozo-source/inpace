@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INPACE | Industria de Soluciones Ferrosas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root { --inpace-red: #D32F2F; --inpace-dark: #1A1A1A; --inpace-gray: #4A4A4A; }
+        body { font-family: 'Inter', sans-serif; color: var(--inpace-dark); scroll-behavior: smooth; }
+        .font-heading { font-family: 'Barlow', sans-serif; }
+        
+        /* Animaciones */
+        .modal-enter { animation: fadeIn 0.3s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        
+        .bg-industrial { 
+            background: linear-gradient(rgba(26,26,26,0.8), rgba(26,26,26,0.8)), 
+            url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80');
+            background-size: cover; background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <header class="fixed w-full z-40 bg-white/95 backdrop-blur shadow-md py-4 px-6 md:px-16 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <div class="bg-[var(--inpace-red)] text-white font-black p-2 italic text-xl">I</div>
+            <span class="text-2xl font-black font-heading tracking-tighter">INPACE</span>
+        </div>
+        <nav class="hidden lg:flex space-x-8 text-xs font-bold uppercase tracking-tighter text-gray-600">
+            <a href="#inicio" class="hover:text-[var(--inpace-red)] transition">Inicio</a>
+            <a href="#empresa" class="hover:text-[var(--inpace-red)] transition">Empresa</a>
+            <a href="#productos" class="hover:text-[var(--inpace-red)] transition">Productos</a>
+            <a href="#servicios" class="hover:text-[var(--inpace-red)] transition">Servicios Técnicos</a>
+            <a href="#contacto" class="hover:text-[var(--inpace-red)] transition">Contacto</a>
+        </nav>
+        <button onclick="openContact()" class="bg-[var(--inpace-red)] text-white px-5 py-2 text-xs font-bold uppercase hover:bg-black transition">Cotizar Ahora</button>
+    </header>
+
+    <section id="inicio" class="bg-industrial h-screen flex items-center px-6 md:px-16 text-white pt-20">
+        <div class="max-w-4xl">
+            <h1 class="text-5xl md:text-8xl font-heading font-black uppercase leading-none mb-6">Acero con <br> <span class="text-[var(--inpace-red)]">Precisión</span> Industrial.</h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl font-light">Líderes en Paraguay en la fabricación de armaduras y distribución de acero estructural. Optimizamos su obra con tecnología de vanguardia.</p>
+            <div class="flex flex-wrap gap-4">
+                <a href="#productos" class="bg-[var(--inpace-red)] px-8 py-4 text-xs font-bold uppercase hover:bg-white hover:text-black transition">Explorar Productos</a>
+                <a href="#servicios" class="border border-white px-8 py-4 text-xs font-bold uppercase hover:bg-white hover:text-black transition">Ingeniería de Armado</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="empresa" class="py-24 px-6 md:px-16 bg-white">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-[var(--inpace-red)] font-bold uppercase tracking-widest text-xs mb-4">Sobre Inpace</h2>
+                <h3 class="text-4xl font-heading font-black uppercase mb-8">Solidez y Trayectoria en el Mercado Paraguayo</h3>
+                <p class="text-gray-600 leading-relaxed mb-6 italic">"No solo vendemos acero, entregamos soluciones que aceleran el ritmo de la construcción."</p>
+                <p class="text-gray-600 leading-relaxed mb-8 text-sm">
+                    Inpace es una industria metalúrgica dedicada a la provisión de materiales ferrosos para la construcción civil e industrial. Nuestra planta cuenta con procesos automatizados de corte y doblado, eliminando el desperdicio en obra y garantizando el cumplimiento estricto de las planillas de hierro de los ingenieros más exigentes.
+                </p>
+                <div class="grid grid-cols-3 gap-4 text-center">
+                    <div class="p-4 bg-gray-50"><span class="block font-black text-2xl">0%</span><span class="text-[9px] uppercase text-gray-400">Desperdicio</span></div>
+                    <div class="p-4 bg-gray-50"><span class="block font-black text-2xl">+40yr</span><span class="text-[9px] uppercase text-gray-400">Experiencia</span></div>
+                    <div class="p-4 bg-gray-50"><span class="block font-black text-2xl">JIT</span><span class="text-[9px] uppercase text-gray-400">Logística</span></div>
+                </div>
+            </div>
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80" class="rounded-lg shadow-2xl">
+                <div class="absolute -bottom-6 -left-6 bg-[var(--inpace-red)] text-white p-8 hidden md:block">
+                    <p class="text-sm font-bold uppercase tracking-tighter">Calidad Garantizada</p>
+                    <p class="text-xs opacity-80 mt-1">Normas ASTM & Internacionales</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="productos" class="py-24 px-6 md:px-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 flex justify-between items-end">
+                <div>
+                    <h2 class="text-4xl font-heading font-black uppercase">Nuestro Catálogo</h2>
+                    <div class="h-1 w-20 bg-[var(--inpace-red)] mt-4"></div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white group cursor-pointer shadow-md hover:shadow-xl transition" onclick="openDetail('varillas')">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition">
+                            <span class="text-white border border-white px-4 py-2 text-xs uppercase font-bold">Ver Medidas Técnicas</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-xl mb-2">Varillas y Hierros</h4>
+                        <p class="text-gray-500 text-xs">Aceros conformados de alta resistencia para estructuras de hormigón.</p>
+                    </div>
+                </div>
+                <div class="bg-white group cursor-pointer shadow-md hover:shadow-xl transition" onclick="openDetail('mallas')">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1533038590840-1cde6e668a91?auto=format&fit=crop&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition">
+                            <span class="text-white border border-white px-4 py-2 text-xs uppercase font-bold">Ver Especificaciones</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-xl mb-2">Mallas Electrosoldadas</h4>
+                        <p class="text-gray-500 text-xs">Paneles listos para pavimentos, losas y muros de contención.</p>
+                    </div>
+                </div>
+                <div class="bg-white group cursor-pointer shadow-md hover:shadow-xl transition" onclick="openDetail('vigas')">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1513245543132-31f507417b26?auto=format&fit=crop&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition">
+                            <span class="text-white border border-white px-4 py-2 text-xs uppercase font-bold">Detalles de Armado</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-xl mb-2">Vigas y Columnas</h4>
+                        <p class="text-gray-500 text-xs">Estructuras armadas según requerimiento del proyecto.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="py-24 px-6 md:px-16 bg-[var(--inpace-dark)] text-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-20 items-center">
+                <div class="order-2 md:order-1">
+                    <img src="https://images.unsplash.com/photo-1581094128547-138305578cc0?auto=format&fit=crop&q=80" class="rounded shadow-2xl border-l-8 border-[var(--inpace-red)]">
+                </div>
+                <div class="order-1 md:order-2">
+                    <h2 class="text-[var(--inpace-red)] font-bold uppercase tracking-widest text-xs mb-4">Ingeniería de Acero</h2>
+                    <h3 class="text-5xl font-heading font-black uppercase mb-8">Servicio de Corte, Doblado y Armado</h3>
+                    <p class="text-gray-400 mb-8 leading-relaxed font-light">
+                        Elimine los cuellos de botella en su obra. Nuestra tecnología automatizada permite procesar el acero directamente desde sus planos estructurales.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="mt-1 bg-[var(--inpace-red)] p-1"><i data-lucide="scissors" class="w-4 h-4 text-white"></i></div>
+                            <div><h5 class="font-bold uppercase text-sm">Corte a Medida</h5><p class="text-xs text-gray-500 mt-1">Precisión milimétrica que elimina la generación de chatarra sobrante.</p></div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="mt-1 bg-[var(--inpace-red)] p-1"><i data-lucide="refresh-cw" class="w-4 h-4 text-white"></i></div>
+                            <div><h5 class="font-bold uppercase text-sm">Doblado CNC</h5><p class="text-xs text-gray-500 mt-1">Ángulos y formas complejas según norma de cálculo estructural.</p></div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="mt-1 bg-[var(--inpace-red)] p-1"><i data-lucide="layout" class="w-4 h-4 text-white"></i></div>
+                            <div><h5 class="font-bold uppercase text-sm">Servicio de Armado</h5><p class="text-xs text-gray-500 mt-1">Entrega de piezas pre-armadas listas para su colocación directa.</p></div>
+                        </div>
+                    </div>
+                    <button onclick="openDetail('ingenieria')" class="mt-10 bg-white text-black px-10 py-4 text-xs font-bold uppercase hover:bg-[var(--inpace-red)] hover:text-white transition">Conocer el Proceso Técnico</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-24 px-6 md:px-16 bg-white">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16">
+            <div>
+                <h2 class="text-4xl font-heading font-black uppercase mb-8">Contacto Directo</h2>
+                <div class="space-y-8">
+                    <div class="flex items-center gap-4">
+                        <i data-lucide="map-pin" class="text-[var(--inpace-red)]"></i>
+                        <p class="text-sm font-semibold uppercase">Planta Industrial: <span class="block text-gray-500 font-normal normal-case">Villeta / Mariano Roque Alonso, Paraguay</span></p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <i data-lucide="phone" class="text-[var(--inpace-red)]"></i>
+                        <p class="text-sm font-semibold uppercase">Teléfonos: <span class="block text-gray-500 font-normal normal-case">+595 21 000 000 / +595 9XX XXX XXX</span></p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <i data-lucide="mail" class="text-[var(--inpace-red)]"></i>
+                        <p class="text-sm font-semibold uppercase">Email: <span class="block text-gray-500 font-normal normal-case">ventas@inpace.com.py | info@inpace.com.py</span></p>
+                    </div>
+                </div>
+            </div>
+            <form class="bg-gray-50 p-10 rounded shadow-inner">
+                <div class="grid grid-cols-2 gap-6 mb-6">
+                    <input type="text" placeholder="Nombre Completo" class="col-span-2 md:col-span-1 border-b border-gray-300 bg-transparent py-3 focus:outline-none focus:border-[var(--inpace-red)] transition text-sm">
+                    <input type="text" placeholder="Empresa / Obra" class="col-span-2 md:col-span-1 border-b border-gray-300 bg-transparent py-3 focus:outline-none focus:border-[var(--inpace-red)] transition text-sm">
+                </div>
+                <input type="email" placeholder="Correo Electrónico" class="w-full border-b border-gray-300 bg-transparent py-3 mb-6 focus:outline-none focus:border-[var(--inpace-red)] transition text-sm">
+                <textarea placeholder="Detalle su requerimiento técnico (tonelaje, tipos de mallas, etc.)" class="w-full border-b border-gray-300 bg-transparent py-3 mb-8 h-32 focus:outline-none focus:border-[var(--inpace-red)] transition text-sm"></textarea>
+                <button class="w-full bg-[var(--inpace-red)] text-white py-4 font-bold uppercase text-xs tracking-widest hover:bg-black transition">Enviar Solicitud de Cotización</button>
+            </form>
+        </div>
+    </section>
+
+    <div id="modalOverlay" class="fixed inset-0 bg-black/90 z-[60] hidden flex items-center justify-center p-4">
+        <div id="modalContent" class="bg-white w-full max-w-5xl max-h-[90vh] overflow-y-auto modal-enter p-8 md:p-12 relative">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-gray-400 hover:text-black transition"><i data-lucide="x" class="w-8 h-8"></i></button>
+            <div id="modalInjectedContent">
+                </div>
+        </div>
+    </div>
+
+    <footer class="bg-black text-white py-12 px-6 md:px-16 text-center text-[10px] uppercase tracking-[0.4em]">
+        <p>© 2026 INPACE INDUSTRIAL - EL ACERO QUE SOSTIENE EL PROGRESO</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const info = {
+            varillas: {
+                title: "Varillas de Acero Conformadas",
+                img: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80",
+                text: "Producimos varillas con nervaduras de alta adherencia, fabricadas bajo estrictos estándares de calidad internacional. Ideales para armaduras de hormigón en edificios de altura e infraestructuras viales.",
+                specs: [
+                    ["Diámetros", "6mm, 8mm, 10mm, 12mm, 16mm, 20mm, 25mm, 32mm"],
+                    ["Grado", "Grade 60 (Límite Fluencia > 420 MPa)"],
+                    ["Presentación", "Barras de 12m o Cortado/Doblado según planilla"],
+                    ["Norma", "ASTM A615 / NM 07"]
+                ]
+            },
+            mallas: {
+                title: "Mallas Electrosoldadas de Ingeniería",
+                img: "https://images.unsplash.com/photo-1533038590840-1cde6e668a91?auto=format&fit=crop&q=80",
+                text: "Mallas de acero conformadas por barras longitudinales y transversales soldadas por resistencia eléctrica en cada punto de cruce.",
+                specs: [
+                    ["Panel Estándar", "2.40m x 6.00m"],
+                    ["Separación", "15x15cm, 20x20cm, 15x25cm"],
+                    ["Diámetro Alambre", "4.2mm a 10mm"],
+                    ["Aplicación", "Plateas, muros, pavimentos industriales"]
+                ]
+            },
+            vigas: {
+                title: "Vigas, Columnas y Trelizas",
+                img: "https://images.unsplash.com/photo-1513245543132-31f507417b26?auto=format&fit=crop&q=80",
+                text: "Entregamos estructuras armadas y soldadas por personal calificado. Listas para ser izadas y colocadas en los encofrados.",
+                specs: [
+                    ["Trelizas", "Estructuras triangulares para viguetas pre-tensadas"],
+                    ["Columnas", "Armadas según plano con estribos electro-soldados"],
+                    ["Ventaja", "Ahorro del 50% en tiempo de armado en sitio"],
+                    ["Precisión", "Soldadura industrial controlada"]
+                ]
+            },
+            ingenieria: {
+                title: "Servicio Avanzado de Corte y Doblado",
+                img: "https://images.unsplash.com/photo-1581094128547-138305578cc0?auto=format&fit=crop&q=80",
+                text: "Nuestra mayor ventaja competitiva. El cliente envía la planilla de hierro y recibe el material 'listo para instalar', clasificado y etiquetado por posición.",
+                specs: [
+                    ["Software", "Optimización de corte para residuo < 1%"],
+                    ["Maquinaria", "Estribadoras y dobladoras automáticas CNC"],
+                    ["Entrega", "Etiquetado por ID de plano estructural"],
+                    ["Logística", "Descarga con grúa directamente en zona de armado"]
+                ]
+            }
+        };
+
+        function openDetail(key) {
+            const data = info[key];
+            const content = `
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div>
+                        <img src="${data.img}" class="w-full h-80 object-cover rounded shadow-lg mb-6">
+                        <h2 class="text-3xl font-heading font-black uppercase mb-4">${data.title}</h2>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-6">${data.text}</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold uppercase text-xs tracking-widest text-[var(--inpace-red)] mb-4">Ficha Técnica</h4>
+                        <table class="w-full text-sm border-collapse">
+                            ${data.specs.map(s => `
+                                <tr class="border-b border-gray-100 italic">
+                                    <td class="py-4 font-bold text-gray-700">${s[0]}</td>
+                                    <td class="py-4 text-gray-500">${s[1]}</td>
+                                </tr>
+                            `).join('')}
+                        </table>
+                        <button onclick="closeModal(); openContact()" class="w-full mt-10 bg-[var(--inpace-red)] text-white py-4 font-bold uppercase text-xs tracking-widest hover:bg-black transition">Solicitar Cotización Técnica</button>
+                    </div>
+                </div>
+            `;
+            document.getElementById('modalInjectedContent').innerHTML = content;
+            document.getElementById('modalOverlay').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function openContact() {
+            document.getElementById('contacto').scrollIntoView();
+        }
+    </script>
+</body>
+</html>
