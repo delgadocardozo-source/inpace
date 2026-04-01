@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAMER - Tu Futuro, Nuestro Presente (Prototipo V2)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        vamerBlue: '#1E3A8A', 
+                        vamerGold: '#D4AF37', 
+                        vamerGrey: '#374151', 
+                        vamerBg: '#F3F4F6',   
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .slider { -webkit-appearance: none; width: 100%; height: 7px; background: #e5e7eb; outline: none; border-radius: 5px; }
+        .slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; background: #D4AF37; cursor: pointer; border-radius: 50%; }
+        .bg-hero { background-image: url('https://images.unsplash.com/photo-1598000000000-000000000000?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTkyMXwwfDF8c2VhcmNofDI5fHxsYW5kfGVufDB8fHx8MTY3MjUyMzgzMQ&ixlib=rb-4.0.3&q=80&w=1600'); background-size: cover; background-position: center; }
+        .bg-loteamiento1 { background-image: url('https://images.unsplash.com/photo-1598000000000-000000000000?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTkyMXwwfDF8c2VhcmNofDEzfHxsYW5kYXBlaHxlbnwwfHx8fDE2NzI1MjM4MzE&ixlib=rb-4.0.3&q=80&w=800'); background-size: cover; background-position: center; }
+        .bg-loteamiento2 { background-image: url('https://images.unsplash.com/photo-1598000000000-000000000000?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTkyMXwwfDF8c2VhcmNofDJ8fGxhbmQlMjBkZXZlbG9wbWVudHxlbnwwfHx8fDE2NzI1MjM4MzE&ixlib=rb-4.0.3&q=80&w=800'); background-size: cover; background-position: center; }
+    </style>
+</head>
+<body class="bg-vamerBg font-sans text-vamerGrey min-h-screen">
+
+    <header class="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="showView('landing')">
+                <svg width="35" height="35" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50 95L10 25H35L50 65L65 25H90L50 95Z" fill="#1E3A8A"/> 
+                    <path d="M50 95L38 25H50L60 65L50 95Z" fill="#D4AF37" fillOpacity="0.7"/> 
+                </svg>
+                <div class="flex flex-col">
+                    <h1 class="text-2xl font-extrabold tracking-tight text-vamerBlue leading-none">VAMER</h1>
+                    <span class="text-[9px] text-vamerGold tracking-widest font-bold uppercase mt-1">Tu futuro, nuestro presente.</span>
+                </div>
+            </div>
+            <nav id="public-nav" class="flex items-center gap-8">
+                <button onclick="showView('landing')" class="text-sm font-semibold text-vamerGrey hover:text-vamerBlue transition">Inicio</button>
+                <button onclick="showView('lotes')" class="text-sm font-semibold text-vamerGrey hover:text-vamerBlue transition">Loteamientos</button>
+                <button onclick="showView('login')" class="bg-vamerBlue text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-blue-900 transition shadow-sm">Acceso Ejecutivo</button>
+            </nav>
+            <nav id="admin-nav" class="hidden flex items-center gap-6">
+                <button onclick="showView('landing')" class="text-xs text-vamerGrey hover:text-vamerBlue">Cerrar Sesión</button>
+                <div class="w-9 h-9 bg-vamerBlue text-white rounded-full flex items-center justify-center font-bold text-sm shadow-inner">CG</div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-8 md:py-12">
+
+        <section id="view-landing" class="view space-y-24">
+            <div class="relative rounded-3xl overflow-hidden bg-hero shadow-2xl border border-gray-100 h-[600px] flex items-center text-center px-10">
+                <div class="absolute inset-0 bg-vamerBlue bg-opacity-70"></div>
+                <div class="relative z-10 max-w-4xl mx-auto">
+                    <h2 class="text-xs font-bold text-vamerGold uppercase tracking-widest mb-4">Un nuevo estándar de vida</h2>
+                    <h3 class="text-5xl md:text-7xl font-extrabold text-white tracking-tighter leading-tight mb-8">
+                        Construye tu hogar sobre los cimientos de tu <span class="text-vamerGold">legado</span>.
+                    </h3>
+                    <p class="text-xl text-blue-100 max-w-2xl mx-auto mb-14 leading-relaxed">
+                        En VAMER, cada lote es una oportunidad de inversión segura y el escenario donde se diseñan tus mejores recuerdos. Loteamientos planificados, plusvalía garantizada y el respaldo de la transparencia corporativa.
+                    </p>
+                    <div class="flex gap-4 justify-center">
+                        <button onclick="showView('lotes')" class="bg-vamerGold text-white px-10 py-4 rounded-full text-lg font-bold hover:bg-yellow-600 transition shadow-lg transform hover:-translate-y-0.5">
+                            Explorar Loteamientos y Cuotero
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-12">
+                <h4 class="text-4xl font-extrabold text-vamerBlue tracking-tight text-center">Nuestros Proyectos a Tu Disposición</h4>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="rounded-2xl overflow-hidden bg-white shadow-xl border border-gray-100 transition transform hover:-translate-y-1">
+                        <div class="bg-loteamiento1 h-72"></div>
+                        <div class="p-8 space-y-4">
+                            <h5 class="text-2xl font-bold text-vamerBlue">Horizonte Guaraní - Mariano R. Alonso</h5>
+                            <p class="text-sm text-gray-600">Loteamiento premium en zona de alto desarrollo comercial. Ideal para constructores e inversores.</p>
+                            <button onclick="showView('lotes')" class="w-full bg-vamerGrey text-white py-3.5 rounded-lg text-sm font-bold hover:bg-gray-800 transition">Ver Mapa e Inventario</button>
+                        </div>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden bg-white shadow-xl border border-gray-100 transition transform hover:-translate-y-1">
+                        <div class="bg-loteamiento2 h-72"></div>
+                        <div class="p-8 space-y-4">
+                            <h5 class="text-2xl font-bold text-vamerBlue">Horizonte Central - Mariano R. Alonso</h5>
+                            <p class="text-sm text-gray-600">Perfecto para familias, con infraestructura planificada y rápidos accesos al centro.</p>
+                            <button onclick="showView('lotes')" class="w-full bg-vamerGrey text-white py-3.5 rounded-lg text-sm font-bold hover:bg-gray-800 transition">Ver Mapa e Inventario</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-lotes" class="view hidden space-y-10">
+            <div class="flex justify-between items-center border-b pb-5 border-gray-200">
+                <h2 class="text-3xl font-extrabold text-vamerBlue tracking-tight">Mapa de Disponibilidad: Horizonte Guaraní</h2>
+                <div class="flex items-center gap-3 bg-white p-2 rounded-full shadow-inner border">
+                    <span class="text-xs font-bold text-gray-400 px-3">Estado:</span>
+                    <span class="text-xs font-semibold text-green-700 bg-green-50 px-3 py-1 rounded-full border border-green-100">■ Disponible</span>
+                    <span class="text-xs font-semibold text-yellow-700 bg-yellow-50 px-3 py-1 rounded-full border border-yellow-100">■ Reservado</span>
+                    <span class="text-xs font-semibold text-red-700 bg-red-50 px-3 py-1 rounded-full border border-red-100">■ Vendido</span>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-10">
+                <div class="lg:col-span-2 bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                    <h3 class="font-bold text-vamerBlue mb-1">Visualización de Manzanas</h3>
+                    <p class="text-xs text-gray-500 mb-6">Haga clic en un lote disponible para cotizar.</p>
+                    <div class="mb-8">
+                        <h4 class="font-semibold text-sm text-gray-700 mb-3 border-l-4 border-vamerGold pl-2">Manzana A</h4>
+                        <div class="flex flex-wrap gap-2.5">
+                            <button onclick="selectLot('A-1', 85000000, 'disponible')" class="w-16 h-16 flex items-center justify-center font-extrabold text-white rounded-lg bg-green-500 hover:scale-105 transition shadow">1</button>
+                            <button class="w-16 h-16 flex items-center justify-center font-extrabold text-white rounded-lg bg-green-500 opacity-60 cursor-not-allowed">2</button>
+                            <button onclick="selectLot('A-3', 85000000, 'reservado')" class="w-16 h-16 flex items-center justify-center font-extrabold text-white rounded-lg bg-yellow-500 hover:scale-105 transition shadow">3</button>
+                            <button class="w-16 h-16 flex items-center justify-center font-extrabold text-white rounded-lg bg-red-500 opacity-50 cursor-not-allowed">4</button>
+                            <button onclick="selectLot('A-5', 92000000, 'disponible')" class="w-16 h-16 flex items-center justify-center font-extrabold text-white rounded-lg bg-green-500 hover:scale-105 transition shadow">5</button>
+                            <button onclick="selectLot('A-6', 92000000, 'disponible')" class="w-16 h-16 flex items-center justify-center font-extrabold text-white rounded-lg bg-green-500 hover:scale-105 transition shadow">6</button>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-sm text-gray-700 mb-3 border-l-4 border-vamerGold pl-2">Manzana B</h4>
+                        <div class="flex flex-wrap gap-2.5">
+                            <button class="w-16 h-16 flex items-center justify-center font-extrabold text-white rounded-lg bg-red-500 opacity-50 cursor-not-allowed">1</button>
+                            <button onclick="selectLot('B-2', 78000000, 'disponible')" class="w-16 h-16 flex items-center justify-center font-extrabold text-white rounded-lg bg-green-500 hover:scale-105 transition shadow">2</button>
+                            <button onclick="selectLot('B-3', 78000000, 'disponible')" class="w-16 h-16 flex items-center justify-center font-extrabold text-white rounded-lg bg-green-500 hover:scale-105 transition shadow">3</button>
+                            <button class="w-16 h-16 flex items-center justify-center font-extrabold text-white rounded-lg bg-yellow-500Opacity opacity-60 cursor-not-allowed">4</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-vamerBlue text-white p-8 rounded-2xl shadow-xl space-y-6 h-fit sticky top-28">
+                    <div class="flex items-center gap-3 border-b border-blue-800 pb-4 mb-2">
+                        <svg class="w-7 h-7 text-vamerGold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                        <h3 class="text-xl font-bold tracking-tight">Simulador de Pago Inteligente</h3>
+                    </div>
+                    <div id="cuotero-empty" class="text-center py-8 border-2 border-dashed border-blue-700 rounded-lg text-blue-300">
+                        <p class="text-sm">Seleccione un lote disponible para cotizar.</p>
+                    </div>
+                    <div id="cuotero-active" class="hidden space-y-5">
+                        <div class="p-4 bg-blue-950 rounded-lg flex justify-between items-center shadow-inner">
+                            <span class="text-xs text-blue-300">Lote</span>
+                            <span id="display-lot-id" class="text-2xl font-black text-vamerGold">A-1</span>
+                            <span id="display-lot-status" class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-green-100 text-green-800">Disponible</span>
+                        </div>
+                        <div class="space-y-1.5">
+                            <label class="text-xs font-bold text-blue-200">Precio de Contado (Simulado Gs.)</label>
+                            <div class="relative">
+                                <span class="absolute left-3 top-3 text-vamerBlue font-bold text-lg">₲</span>
+                                <input type="text" id="display-price-contado" readOnly value="85.000.000" class="w-full bg-white text-vamerBlue p-3 pl-8 rounded-lg font-mono text-xl font-bold shadow-inner">
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-baseline">
+                                <label class="text-xs font-bold text-blue-200">Plazo de Financiación (Meses)</label>
+                                <span id="display-plazo" class="text-xl font-extrabold text-vamerGold">130</span>
+                            </div>
+                            <input type="range" min="12" max="130" value="130" id="plazo-slider" class="slider" oninput="updateCuota()">
+                        </div>
+                        <div class="pt-5 border-t border-blue-800 text-center">
+                            <p class="text-xs font-bold text-blue-200 mb-1">Cuota Mensual Estimada (Simulada)</p>
+                            <p class="text-4xl font-black text-green-300 leading-none">₲ <span id="display-cuota">653.846</span></p>
+                        </div>
+                        <button class="w-full bg-white text-vamerBlue py-3.5 rounded-lg text-sm font-bold hover:bg-gray-100 transition shadow">
+                            Solicitar Reserva Oficial
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-login" class="view hidden flex items-center justify-center pt-20">
+            <div class="bg-white p-10 rounded-2xl shadow-xl border w-full max-w-md">
+                <div class="text-center mb-8">
+                    <svg class="w-12 h-12 text-vamerGold mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    <h2 class="text-2xl font-extrabold text-vamerBlue tracking-tight">Acceso Corporativo VAMER</h2>
+                    <p class="text-xs text-gray-500 mt-1">Ingrese credenciales de demostración.</p>
+                </div>
+                <div class="space-y-4">
+                    <input type="text" placeholder="Usuario (ej. admin)" class="w-full p-3 border rounded-lg text-sm focus:ring-1 focus:ring-vamerBlue outline-none">
+                    <input type="password" placeholder="Contraseña (ej. 1234)" class="w-full p-3 border rounded-lg text-sm focus:ring-1 focus:ring-vamerBlue outline-none">
+                    <button onclick="loginSimulado()" class="w-full bg-vamerBlue text-white py-3 rounded-lg text-sm font-bold hover:bg-blue-900 transition mt-2">
+                        Ingresar al Sistema
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-admin" class="view hidden space-y-12">
+            <div class="flex justify-between items-baseline border-b pb-5 border-gray-200">
+                <h2 class="text-4xl font-extrabold text-vamerBlue tracking-tight">Panel Ejecutivo Global</h2>
+                <span class="text-sm font-medium text-gray-500">Región: Mariano Roque Alonso | Fecha Simulada</span>
+            </div>
+
+            <div class="space-y-6">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow border-l-4 border-l-vamerBlue">
+                        <p class="text-[10px] font-bold text-gray-400 uppercase mb-1">Ventas Lotes (Mes)</p>
+                        <div class="flex items-end gap-2">
+                            <p class="text-4xl font-black text-vamerBlue leading-none">18</p>
+                            <span class="text-xs font-bold text-green-600">↑ 12%</span>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow border-l-4 border-l-green-500">
+                        <p class="text-[10px] font-bold text-gray-400 uppercase mb-1">Cobranza Real (Gs. Mes)</p>
+                        <p class="text-xl font-extrabold text-green-600 leading-none mt-1">₲ 85.3M</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow border-l-4 border-l-vamerGold">
+                        <p class="text-[10px] font-bold text-gray-400 uppercase mb-1">Prospectos Nuevos (Mes)</p>
+                        <div class="flex items-end gap-2">
+                            <p class="text-4xl font-black text-vamerBlue leading-none">105</p>
+                            <span class="text-xs font-bold text-green-600">↑ 4%</span>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow border-l-4 border-l-red-500">
+                        <p class="text-[10px] font-bold text-gray-400 uppercase mb-1">Tasa de Cierre (Mes)</p>
+                        <p class="text-4xl font-black text-red-500 leading-none">18.5%</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow space-y-3">
+                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Inventario Total de m² (Mariano R. Alonso)</p>
+                        <div class="flex justify-between items-end">
+                            <p class="text-5xl font-black text-vamerGrey leading-none">125.000 <span class="text-lg font-bold text-gray-400">m²</span></p>
+                            <p class="text-sm font-semibold text-vamerBlue">420 Lotes Totales</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow space-y-3 border border-vamerGold/30 bg-vamerGold/5">
+                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">m² Reservados (Mensual)</p>
+                        <div class="flex justify-between items-end">
+                            <p class="text-5xl font-black text-vamerGold leading-none">31.250 <span class="text-lg font-bold text-gray-400">m²</span></p>
+                            <p class="text-sm font-semibold text-vamerGold">25% del Total Disponible</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow border space-y-6">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-bold text-vamerBlue flex items-center gap-2">Gestor de Clientes (CRM) - Última Actividad</h3>
+                        <button class="text-xs text-vamerBlue font-semibold hover:text-blue-700">Ver Todo</button>
+                    </div>
+                    <div class="space-y-3 font-medium text-xs text-vamerGrey h-80 overflow-y-auto pr-2">
+                        <div class="flex justify-between items-center border-b pb-2.5">
+                            <div>
+                                <p class="font-bold">Juan R. Pérez</p>
+                                <p class="text-[11px] text-gray-400">Horizonte Guaraní - A-1</p>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-yellow-100 text-yellow-800 border">Negociación</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b pb-2.5">
+                            <div>
+                                <p class="font-bold">María Gómez</p>
+                                <p class="text-[11px] text-gray-400">Horizonte Central - B-2</p>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-blue-100 text-blue-800 border">Contacto Inicial</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b pb-2.5">
+                            <div>
+                                <p class="font-bold">Cámara Constructores PY</p>
+                                <p class="text-[11px] text-gray-400">Horizonte Guaraní (4 lotes)</p>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-green-100 text-green-800 border">Reserva Confirmada</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b pb-2.5">
+                            <div>
+                                <p class="font-bold">Arq. Luis Ramírez</p>
+                                <p class="text-[11px] text-gray-400">Horizonte Guaraní - A-3</p>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-yellow-100 text-yellow-800 border">Negociación</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b pb-2.5">
+                            <div>
+                                <p class="font-bold">Sofía Fernández</p>
+                                <p class="text-[11px] text-gray-400">Horizonte Central - A-5</p>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-blue-100 text-blue-800 border">Contacto Inicial</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b pb-2.5">
+                            <div>
+                                <p class="font-bold">Pedro Martínez</p>
+                                <p class="text-[11px] text-gray-400">Horizonte Guaraní - B-3</p>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-red-100 text-red-800 border">Vendido</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow border space-y-6 h-fit">
+                    <h3 class="text-xl font-bold text-vamerBlue flex items-center gap-2">Inteligencia de Mercado (CMA Simulado)</h3>
+                    <p class="text-xs text-gray-500 italic border-l-4 pl-3">Datos basados en promedios simulados del mercado para Mariano Roque Alonso.</p>
+                    <div class="space-y-4 text-center">
+                        <div class="bg-gray-50 p-5 rounded-xl border">
+                            <p class="text-[10px] text-gray-500 uppercase font-bold mb-1.5">Valor Promedio m2 Zona Activa</p>
+                            <p class="text-2xl font-black text-vamerGrey">₲ 215.000 / m²</p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-gray-50 p-4 rounded-xl border text-center">
+                                <p class="text-[10px] text-gray-500 uppercase font-bold">Horizonte Guaraní Plusvalía</p>
+                                <p class="text-xl font-extrabold text-green-600">↑ 4.2% / semestre</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-xl border text-center">
+                                <p class="text-[10px] text-gray-500 uppercase font-bold">Horizonte Central Plusvalía</p>
+                                <p class="text-xl font-extrabold text-green-600">↑ 3.8% / semestre</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="mt-20 border-t border-gray-100 bg-white py-8 text-center text-xs text-gray-400">
+        <p>&copy; 2024 VAMER Desarrollos Inmobiliarios. Prototipo Visual Ampliado (Lluvia de Información).</p>
+    </footer>
+
+    <div id="whatsapp-global" class="fixed bottom-6 right-6 z-50 transform hover:scale-110 transition cursor-pointer">
+        <a href="https://wa.me/595900000000?text=Hola%20VAMER,%20solicito%20información%20sobre%20loteamientos%20(Borrador)" target="_blank">
+            <div class="bg-green-500 text-white p-4 rounded-full shadow-2xl flex items-center justify-center">
+                <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 0C5.397 0 .016 5.378.016 12.012c0 2.115.55 4.178 1.594 6l-1.594 5.827 5.961-1.565a12.023 12.023 0 0 0 6.054 1.636h.005c6.634 0 12.016-5.38 12.016-12.015C24.052 5.378 18.669 0 12.031 0Zm0 21.968a9.927 9.927 0 0 1-5.06-1.378l-.36-.214-3.765.986.998-3.67-.234-.374A9.94 9.94 0 0 1 2.062 12.01c0-5.503 4.48-9.982 9.97-9.982 5.503 0 9.982 4.479 9.982 9.982 0 5.498-4.48 9.958-9.983 9.958Zm5.47-7.48c-.3-.15-1.772-.876-2.046-.976-.275-.1-.475-.15-.675.15-.2.302-.774.977-.95 1.178-.174.2-.35.226-.65.076-.3-.15-1.265-.466-2.408-1.488-.888-.795-1.488-1.777-1.664-2.078-.175-.3-.018-.463.132-.613.135-.135.3-.35.45-.526.15-.175.2-.3.3-.5.1-.2.05-.376-.025-.526-.075-.15-.675-1.626-.925-2.226-.242-.583-.487-.504-.674-.513-.175-.009-.375-.009-.575-.009-.2 0-.526.075-.801.375-.275.3-1.05 1.026-1.05 2.5 0 1.476 1.075 2.902 1.225 3.102.15.2 2.115 3.227 5.122 4.528 2.058.89 2.83.712 3.38.562.55-.15 1.772-.725 2.022-1.426.25-.7.25-1.3.175-1.426-.075-.125-.275-.2-.575-.35Z"/></svg>
+            </div>
+        </a>
+    </div>
+
+    <script>
+        let selectedLotPrice = 0;
+        function showView(viewName) {
+            document.querySelectorAll('.view').forEach(view => view.classList.add('hidden'));
+            document.getElementById(`view-${viewName}`).classList.remove('hidden');
+            const publicNav = document.getElementById('public-nav');
+            const adminNav = document.getElementById('admin-nav');
+            const waGlobal = document.getElementById('whatsapp-global');
+            if (viewName === 'admin') {
+                publicNav.classList.add('hidden');
+                adminNav.classList.remove('hidden');
+                waGlobal.classList.add('hidden');
+            } else {
+                adminNav.classList.add('hidden');
+                publicNav.classList.remove('hidden');
+                waGlobal.classList.remove('hidden');
+            }
+        }
+        function selectLot(lotId, price, status) {
+            if (status === 'vendido') return;
+            selectedLotPrice = price;
+            document.getElementById('cuotero-empty').classList.add('hidden');
+            document.getElementById('cuotero-active').classList.remove('hidden');
+            document.getElementById('display-lot-id').innerText = lotId;
+            document.getElementById('display-price-contado').value = price.toLocaleString('es-PY');
+            const statusBadge = document.getElementById('display-lot-status');
+            statusBadge.innerText = status;
+            if (status === 'reservado') {
+                statusBadge.classList.replace('bg-green-100', 'bg-yellow-100'); statusBadge.classList.replace('text-green-800', 'text-yellow-800');
+            } else {
+                statusBadge.classList.replace('bg-yellow-100', 'bg-green-100'); statusBadge.classList.replace('text-yellow-800', 'text-green-800');
+            }
+            updateCuota();
+        }
+        function updateCuota() {
+            if (selectedLotPrice === 0) return;
+            const plazo = document.getElementById('plazo-slider').value;
+            document.getElementById('display-plazo').innerText = plazo;
+            const cuotaUnformated = Math.round(selectedLotPrice / plazo);
+            document.getElementById('display-cuota').innerText = cuotaUnformated.toLocaleString('es-PY');
+        }
+        function loginSimulado() { showView('admin'); }
+        showView('landing');
+    </script>
+</body>
+</html>
